@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        bg: 'url(../public/bg.png)',
+      },
       fontFamily: {
         sans: ['var(--font-montserrat)'],
       },
