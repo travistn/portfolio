@@ -5,14 +5,14 @@ const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat
 import './globals.css';
 
 export const metadata = {
-  title: 'Frontend Developer | Travis Nguyen',
+  title: 'Travis Nguyen | Frontend Developer',
   description: 'Portfolio made by Travis Nguyen',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang='en' className={`${montserrat.variable} font-sans`}>
-      <body>{children}</body>
+      <body className='bg-bg bg-cover min-h-screen'>{children}</body>
     </html>
   );
 }
