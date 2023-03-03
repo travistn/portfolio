@@ -1,3 +1,7 @@
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' });
+
 import './globals.css';
 
 export const metadata = {
@@ -7,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${montserrat.variable} font-sans`}>
       <body>{children}</body>
     </html>
   );
