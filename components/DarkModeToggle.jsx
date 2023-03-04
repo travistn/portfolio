@@ -8,7 +8,7 @@ const DarkModeToggle = () => {
 
   return (
     <div
-      className={`w-[40px] h-[20px] rounded-[20px] relative flex items-center cursor-pointer bg-gray-200 dark:bg-[#2f363d]
+      className={`w-[40px] h-[20px] rounded-[20px] relative flex items-center cursor-pointer bg-gray-300 dark:bg-[#2f363d]
       }`}
       onClick={() => {
         setColorTheme(colorTheme);
