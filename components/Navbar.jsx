@@ -1,13 +1,22 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import DarkModeToggle from './DarkModeToggle';
+import { navTransition } from '@/utils/motion';
 
 const Navbar = () => {
   return (
-    <nav className='flex flex-row justify-between items-center px-6 py-4 mx-auto lg:w-[60%]'>
+    <motion.nav
+      className='flex flex-row justify-between items-center px-6 py-4 mx-auto lg:w-[60%]'
+      variants={navTransition}
+      initial='hidden'
+      whileInView='show'>
       <h1 className='text-[26px] tracking-[-1px] font-extrabold lg:text-[30px] dark:text-white'>
         Travistn<span className='text-blue-500'>.</span>dev
       </h1>
       <DarkModeToggle />
-    </nav>
+    </motion.nav>
   );
 };
 
