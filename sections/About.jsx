@@ -13,7 +13,7 @@ const About = () => {
         Hi there, I’m Travis! Being a web developer, I am passionate in creating new experiences,
         implementing eye catching designs, and making websites come to life.
       </p>
-      <div className='mt-8'>
+      <div className='mt-8 relative'>
         <SkillsCarousel />
       </div>
     </section>
