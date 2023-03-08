@@ -1,22 +1,37 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 import SkillsCarousel from '@/components/SkillsCarousel';
+import { staggerContainer, dropUpVariants } from '@/utils/motion';
 
 const About = () => {
   return (
-    <section className='flex flex-col gap-6 px-6 py-16 lg:mx-auto lg:py-[6rem] lg:w-[60%]'>
-      <h1 className='text-blue-500 uppercase font-bold text-center lg:text-[20px] dark:text-blue-400'>
+    <motion.section
+      className='flex flex-col gap-6 px-6 py-16 lg:mx-auto lg:py-[6rem] lg:w-[60%]'
+      variants={staggerContainer}
+      initial='hidden'
+      animate='show'>
+      <motion.h1
+        className='text-blue-500 uppercase font-bold text-center lg:text-[20px] dark:text-blue-400'
+        variants={dropUpVariants}>
         Travis Nguyen
-      </h1>
-      <h2 className='font-extrabold text-[44px] text-center leading-[50px] lg:text-[60px] lg:leading-[90px] dark:text-white'>
+      </motion.h1>
+      <motion.h2
+        className='font-extrabold text-[44px] text-center leading-[50px] lg:text-[60px] lg:leading-[90px] dark:text-white'
+        variants={dropUpVariants}>
         Frontend Developer
-      </h2>
-      <p className='text-[14px] leading-[28px] px-2 text-center lg:text-[16px] lg:px-0 dark:text-white dark:opacity-80'>
+      </motion.h2>
+      <motion.p
+        className='text-[14px] leading-[28px] px-2 text-center lg:text-[16px] lg:px-0 dark:text-white dark:opacity-80'
+        variants={dropUpVariants}>
         Hi there, I’m Travis! Being a web developer, I am passionate in creating new experiences,
         implementing eye catching designs, and making websites come to life.
-      </p>
-      <div className='mt-8 relative'>
+      </motion.p>
+      <motion.div className='mt-8 relative' variants={dropUpVariants}>
         <SkillsCarousel />
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

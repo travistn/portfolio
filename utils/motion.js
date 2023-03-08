@@ -8,6 +8,33 @@ export const navTransition = {
     y: 0,
     transition: {
       type: 'spring',
+      delay: 1,
+    },
+  },
+};
+
+export const staggerContainer = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+export const dropUpVariants = {
+  hidden: {
+    y: 200,
+  },
+  show: {
+    y: 0,
+    transition: {
+      type: 'tween',
+      duration: 0.8,
     },
   },
 };
