@@ -40,3 +40,17 @@ export const skills = [
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg',
   },
 ];
+
+export const projects = [
+  {
+    name: 'PokéPedia',
+    description1:
+      'PokéPedia is an encylopedia that helps you with finding information about Pokémon. Used for learning about the Pokémon games, you can find Pokémon based on generations, abilities, and moves.',
+    description2:
+      'Being an avid fan of Pokémon ever since I can remember, I wanted to build something that I connected with. I also wanted to improve my skills building with Tailwind CSS.',
+    technologies: 'React, Redux Toolkit Query, and Tailwind CSS',
+    liveUrl: 'https://pokepedia-tn.netlify.app/',
+    githubUrl: 'https://github.com/travistn/pokepedia',
+    image: '/pokepedia.png',
+  },
+];
