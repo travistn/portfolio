@@ -4,7 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 import SkillCard from './SkillCard';
-import skills from '../data.json';
+import { skills } from '@/constants';
 import { useCallback } from 'react';
 
 const SkillsCarousel = () => {
