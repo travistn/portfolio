@@ -8,7 +8,7 @@ import { staggerContainer, dropUpVariants } from '@/utils/motion';
 const About = () => {
   return (
     <motion.section
-      className='flex flex-col gap-8 px-6 py-16 lg:mx-auto lg:pt-[6rem] lg:w-[90%] xl:w-[75%] 2xl:w-[60%]'
+      className='flex flex-col gap-8 px-6 py-16 lg:mx-auto lg:pt-[6rem] lg:w-[90%] xl:w-[75%] 2xl:w-[65%]'
       variants={staggerContainer}
       initial='hidden'
       animate='show'>
@@ -23,7 +23,7 @@ const About = () => {
         Frontend Developer
       </motion.h2>
       <motion.p
-        className='text-[14px] leading-[28px] px-2 text-center lg:text-[16px] lg:px-0 dark:text-white dark:opacity-80'
+        className='text-[14px] leading-[28px] px-2 text-center lg:text-[16px] lg:px-[24px] dark:text-white dark:opacity-80'
         variants={dropUpVariants}>
         Hi there, I’m Travis! Being a web developer, I am passionate in creating new experiences,
         implementing eye catching designs, and making websites come to life.

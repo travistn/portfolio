@@ -8,7 +8,7 @@ import { navTransition } from '@/utils/motion';
 const Navbar = () => {
   return (
     <motion.nav
-      className='flex flex-row justify-between items-center px-6 py-4 mx-auto lg:w-[90%] xl:w-[75%] 2xl:w-[60%]'
+      className='flex flex-row justify-between items-center px-6 py-4 mx-auto lg:w-[90%] xl:w-[75%] 2xl:w-[65%]'
       variants={navTransition}
       initial='hidden'
       animate='show'>
