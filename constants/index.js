@@ -43,6 +43,17 @@ export const skills = [
 
 export const projects = [
   {
+    name: 'Spotify Clone',
+    description1:
+      'Spotify Clone works just like the Spotify Web Player website. After logging into your account, you can play songs, albums, and playlists. You can also search for songs and artists and add them to a playlist!',
+    description2:
+      'This app fetches data from the Spotify Web API by using the Spotify Web API Node package and displays the data on a website designed just like the Spotify Web Player.',
+    technologies: 'React, React Router, Express',
+    liveUrl: 'https://github.com/travistn/spotify-clone',
+    githubUrl: 'https://github.com/travistn/spotify-clone',
+    image: '/spotify-clone.png',
+  },
+  {
     name: 'PokéPedia',
     description1:
       'PokéPedia is an encylopedia that helps you with finding information about Pokémon. Used for learning about the Pokémon games, you can find Pokémon based on generations, abilities, and moves.',
