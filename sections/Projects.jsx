@@ -12,6 +12,7 @@ const Projects = () => {
           <ProjectContainer key={index} project={project} index={index} />
         ))}
       </div>
+      <div className='w-full h-[1px] bg-black opacity-30 lg:mt-[6rem] dark:bg-white dark:opacity-60' />
     </section>
   );
 };
