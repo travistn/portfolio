@@ -64,4 +64,15 @@ export const projects = [
     githubUrl: 'https://github.com/travistn/pokepedia',
     image: '/pokepedia.png',
   },
+  {
+    name: 'Audiophile',
+    description1:
+      'Audiophile is an ecommerce website that users can browse through and purchase headphones, speakers, and earphones.',
+    description2:
+      'I used a Figma design by Frontendmentor.io to style the website as close as possible to the design. I chose to use Redux for global state management as the cart inventory needed to persist throughout the web pages.',
+    technologies: 'React, React Router, and Redux',
+    liveUrl: 'https://audiophile-tn.netlify.app/',
+    githubUrl: 'https://github.com/travistn/audiophile',
+    image: '/audiophile.png',
+  },
 ];
