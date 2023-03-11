@@ -7,7 +7,7 @@ const Projects = () => {
       <h3 className='font-bold text-[30px] tracking-[-1px] lg:text-[40px] dark:text-white'>
         Featured Projects
       </h3>
-      <div className='mt-8 flex flex-col gap-[8rem] lg:gap-[10rem] lg:mt-12'>
+      <div className='mt-8 flex flex-col gap-[8rem] lg:gap-[15rem] lg:mt-12'>
         {projects.map((project, index) => (
           <ProjectContainer key={index} project={project} index={index} />
         ))}
