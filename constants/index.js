@@ -75,4 +75,15 @@ export const projects = [
     githubUrl: 'https://github.com/travistn/audiophile',
     image: '/audiophile.png',
   },
+  {
+    name: 'Filmazon',
+    description1:
+      'Filmazon is a web app that users can find information about their favorite movies and tv shows. Users can also viow movies that are currently playing in theaters, and trending movies of day or the week.',
+    description2:
+      'Filmazon was one of the first big projects that I had built. I fetched data from the TMDB API to display info about movies or tv shows. It is nice to reflect on this project and see how much I have grown with my code.',
+    technologies: 'React, React Router, and Redux',
+    liveUrl: 'https://filmazon-tn.netlify.app/',
+    githubUrl: 'https://github.com/travistn/filmazon',
+    image: '/filmazon.png',
+  },
 ];
