@@ -2,11 +2,10 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import { motion, useScroll } from 'framer-motion';
 
 import useParallax from '@/hooks/useParallax';
+import ProjectLink from './ProjectLink';
 
 const ProjectContainer = ({ project, index }) => {
   const ref = useRef(null);
@@ -45,17 +44,8 @@ const ProjectContainer = ({ project, index }) => {
         </p>
         <p className='italic text-[17px] font-medium'>{`Built using ${project.technologies}`}</p>
         <div className='flex flex-row justify-between mt-4 text-[18px] font-medium lg:text-[19px] lg:justify-end lg:gap-6'>
-          <Link href={project.liveUrl} target='_blank' className='flex flex-row items-center gap-2'>
-            Live Site
-            <ArrowUpRightIcon className='w-[19px] h-[19px] stroke-2 transition-transform duration-200 ease-in hover:rotate-45' />
-          </Link>
-          <Link
-            href={project.githubUrl}
-            target='_blank'
-            className='flex flex-row items-center gap-2'>
-            Github
-            <ArrowUpRightIcon className='w-[19px] h-[19px] stroke-2 transition-transform duration-200 ease-in hover:rotate-45' />
-          </Link>
+          <ProjectLink link={project.liveUrl} linkName='Live Site' />
+          <ProjectLink link={project.githubUrl} linkName='Github' />
         </div>
       </motion.div>
     </article>
