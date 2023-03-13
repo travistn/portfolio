@@ -9,7 +9,7 @@ import { projectsTransition } from '@/utils/motion';
 const Projects = () => {
   return (
     <motion.section
-      className='flex flex-col gap-6 px-6 pb-8 lg:mx-auto lg:w-[90%] xl:w-[75%] 2xl:w-[65%] 2xl:pt-[6rem]'
+      className='flex flex-col gap-6 px-6 pb-8 lg:mx-auto lg:w-[90%] xl:w-[75%] 2xl:w-[65%] 2xl:mt-[6rem]'
       variants={projectsTransition}
       initial='hidden'
       whileInView='show'>
