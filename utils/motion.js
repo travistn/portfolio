@@ -46,8 +46,7 @@ export const projectsTransition = {
   show: {
     opacity: 1,
     transition: {
-      delay: 1,
-      duration: 0.8,
+      duration: 0.5,
       ease: 'easeIn',
     },
   },
