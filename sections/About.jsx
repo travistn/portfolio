@@ -8,7 +8,7 @@ import { staggerContainer, dropUpVariants } from '@/utils/motion';
 const About = () => {
   return (
     <motion.section
-      className='flex flex-col gap-8 px-6 py-16 lg:mx-auto lg:pt-[6rem] lg:w-[90%] xl:w-[75%] 2xl:w-[65%]'
+      className='flex flex-col gap-12 px-6 py-16 lg:mx-auto lg:pt-[6rem] lg:w-[90%] xl:w-[75%] 2xl:w-[65%]'
       variants={staggerContainer}
       initial='hidden'
       animate='show'>
@@ -29,6 +29,9 @@ const About = () => {
         implementing eye catching designs, and making websites come to life.
       </motion.p>
       <motion.div className='mt-8 relative' variants={dropUpVariants}>
+        <h3 className='text-center lg:text-[20px] dark:text-white mb-4 font-medium'>
+          Most Used Tools
+        </h3>
         <SkillsCarousel />
       </motion.div>
       <motion.div
