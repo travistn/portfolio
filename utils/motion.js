@@ -38,3 +38,17 @@ export const dropUpVariants = {
     },
   },
 };
+
+export const projectsTransition = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 1,
+      duration: 0.8,
+      ease: 'easeIn',
+    },
+  },
+};
