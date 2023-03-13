@@ -29,7 +29,7 @@ const About = () => {
         implementing eye catching designs, and making websites come to life.
       </motion.p>
       <motion.div className='mt-8 relative' variants={dropUpVariants}>
-        <h3 className='text-center lg:text-[20px] dark:text-white mb-4 font-medium'>
+        <h3 className='text-center mb-6 font-medium lg:text-[20px] dark:text-white'>
           Most Used Tools
         </h3>
         <SkillsCarousel />
