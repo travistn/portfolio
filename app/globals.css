@@ -8,3 +8,37 @@
   padding: 0;
   scroll-behavior: smooth;
 }
+
+.link {
+  overflow: hidden;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.link::after {
+  content: attr(link-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.link:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.link .link-name {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.link:hover .link-name {
+  transform: translate3d(-200%, 0, 0);
+}

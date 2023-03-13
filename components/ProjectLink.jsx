@@ -13,20 +13,20 @@ const ProjectLink = ({ link, linkName }) => {
   };
 
   return (
-    <Link
+    <div
       id={linkName}
-      href={link}
-      target='_blank'
       className='flex flex-row items-center gap-2'
-      onMouseLeave={() => setIsHovered(!isHovered)}
-      onMouseEnter={(e) => handleLinkHover(e)}>
-      {linkName}
+      onMouseEnter={(e) => handleLinkHover(e)}
+      onMouseLeave={() => setIsHovered(!isHovered)}>
+      <Link href={link} target='_blank' className='link' link-replace={linkName}>
+        <span className='link-name'>{linkName}</span>
+      </Link>
       <ArrowUpRightIcon
-        className={`w-[19px] h-[19px] stroke-2 transition-transform duration-200 ease-in ${
-          isHovered && linkType === linkName ? 'rotate-45' : ''
+        className={`w-[19px] h-[19px] stroke-2 transition-transform duration-200 ease-in cursor-pointer ${
+          isHovered && linkType === linkName ? 'lg:rotate-45' : ''
         }`}
       />
-    </Link>
+    </div>
   );
 };
 
