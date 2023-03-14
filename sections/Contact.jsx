@@ -6,11 +6,11 @@ const Contact = () => {
       <h3 className='font-bold text-[30px] tracking-[-1px] lg:text-[40px]'>Contact</h3>
       <p className='font-medium lg:text-[18px] lg:pr-[10rem] xl:pr-[15rem] 2xl:pr-[20rem]'>
         I am currently looking for an opportunity. If you have a question or want to chat, please
-        feel free to send a message through one of the links and I will get back to you!
+        feel free to send a message through one of the links below and I will get back to you!
       </p>
       <div className='flex flex-row gap-4 lg:gap-6'>
         {contacts.map((contact) => (
-          <a href={contact.link} target='_blank'>
+          <a href={contact.link} target='_blank' key={contact.name}>
             <img
               src={contact.icon}
               alt={`${contact.name} icon`}
