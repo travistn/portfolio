@@ -33,11 +33,11 @@ const SkillsCarousel = () => {
         </div>
       </div>
       <ChevronLeftIcon
-        className='hidden lg:flex absolute w-[25px] top-[42%] left-0 cursor-pointer dark:fill-white'
+        className='hidden lg:flex absolute w-[25px] top-[60%] left-0 cursor-pointer dark:fill-white'
         onClick={scrollPrev}
       />
       <ChevronRightIcon
-        className='hidden lg:flex absolute w-[25px] top-[42%] right-0 cursor-pointer dark:fill-white'
+        className='hidden lg:flex absolute w-[25px] top-[60%] right-0 cursor-pointer dark:fill-white'
         onClick={scrollNext}
       />
     </div>
