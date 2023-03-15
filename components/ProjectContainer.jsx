@@ -12,6 +12,7 @@ const ProjectContainer = ({ project, index }) => {
 
   const { scrollYProgress } = useScroll({ target: ref });
   const y = useParallax(scrollYProgress, 100);
+  const borderScroll = useParallax(scrollYProgress, -25);
 
   return (
     <article className='relative grid lg:grid-cols-11'>
@@ -30,9 +31,10 @@ const ProjectContainer = ({ project, index }) => {
           className='brightness-[0.7]'
         />
         <motion.div
-          className={`absolute w-full h-full border-[1px] border-black opacity-30 dark:border-white -z-10 dark:opacity-40 top-5 ${
-            index % 2 === 0 ? 'left-5' : 'right-5'
+          className={`absolute w-full h-full border-[1px] border-black opacity-30 dark:border-white -z-10 dark:opacity-40 bottom-0 ${
+            index % 2 === 0 ? 'left-6' : 'right-6'
           }`}
+          style={{ y: borderScroll }}
         />
       </div>
       <motion.div
