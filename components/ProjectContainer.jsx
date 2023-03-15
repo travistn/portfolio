@@ -29,6 +29,11 @@ const ProjectContainer = ({ project, index }) => {
           height={500}
           className='brightness-[0.7]'
         />
+        <motion.div
+          className={`absolute w-full h-full border-[1px] border-black opacity-30 dark:border-white -z-10 dark:opacity-40 top-5 ${
+            index % 2 === 0 ? 'left-5' : 'right-5'
+          }`}
+        />
       </div>
       <motion.div
         className={`flex flex-col gap-4 p-8 bg-white relative shadow-[0_3px_10px_rgb(0,0,0,0.2)] lg:row-span-full lg:self-center ${
