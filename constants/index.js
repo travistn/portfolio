@@ -49,7 +49,7 @@ export const projects = [
     description2:
       'This app fetches data from the Spotify Web API by using the Spotify Web API Node package and displays the data on a website designed just like the Spotify Web Player.',
     technologies: 'React, React Router, Express',
-    liveUrl: 'https://github.com/travistn/spotify-clone',
+    liveUrl: '',
     githubUrl: 'https://github.com/travistn/spotify-clone',
     image: '/spotify-clone.png',
   },
