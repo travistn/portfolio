@@ -50,8 +50,11 @@ const ProjectContainer = ({ project, index }) => {
           {project.description2}
         </p>
         <p className='italic text-[17px] font-medium'>{`Built using ${project.technologies}`}</p>
-        <div className='flex flex-row justify-between mt-4 text-[18px] font-medium lg:text-[19px] lg:justify-end lg:gap-6'>
-          <ProjectLink link={project.liveUrl} linkName='Live Site' />
+        <div
+          className={`flex flex-row  mt-4 text-[18px] font-medium lg:text-[19px] lg:justify-end lg:gap-6 ${
+            project.liveUrl !== '' ? 'justify-between' : 'justify-end'
+          }`}>
+          {project.liveUrl !== '' && <ProjectLink link={project.liveUrl} linkName='Live Site' />}
           <ProjectLink link={project.githubUrl} linkName='Github' />
         </div>
       </motion.div>
