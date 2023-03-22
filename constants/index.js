@@ -41,53 +41,6 @@ export const skills = [
   },
 ];
 
-export const projects = [
-  {
-    name: 'Spotify Clone',
-    description1:
-      'Spotify Clone works just like the Spotify Web Player website. After logging into your account, you can play songs, albums, and playlists. You can also search for songs and artists and add them to a playlist!',
-    description2:
-      'This app fetches data from the Spotify Web API by using the Spotify Web API Node package and displays the data on a website designed just like the Spotify Web Player.',
-    technologies: 'React, React Router, Express',
-    liveUrl: '',
-    githubUrl: 'https://github.com/travistn/spotify-clone',
-    image: '/spotify-clone.png',
-  },
-  {
-    name: 'PokéPedia',
-    description1:
-      'PokéPedia is an encylopedia that helps you with finding information about Pokémon. Used for learning about the Pokémon games, you can find Pokémon based on generations, abilities, and moves.',
-    description2:
-      'Being an avid fan of Pokémon ever since I can remember, I wanted to build something that I connected with. I also wanted to improve my skills building with Tailwind CSS.',
-    technologies: 'React, Redux Toolkit Query, and Tailwind CSS',
-    liveUrl: 'https://pokepedia-tn.netlify.app/',
-    githubUrl: 'https://github.com/travistn/pokepedia',
-    image: '/pokepedia.png',
-  },
-  {
-    name: 'Audiophile',
-    description1:
-      'Audiophile is an ecommerce website that users can browse through and purchase headphones, speakers, and earphones.',
-    description2:
-      'I used a Figma design by Frontendmentor.io to style the website as close as possible to the design. I chose to use Redux for global state management as the cart inventory needed to persist throughout the web pages.',
-    technologies: 'React, React Router, and Redux',
-    liveUrl: 'https://audiophile-tn.netlify.app/',
-    githubUrl: 'https://github.com/travistn/audiophile',
-    image: '/audiophile.png',
-  },
-  {
-    name: 'Filmazon',
-    description1:
-      'Filmazon is a web app that users can find information about their favorite movies and tv shows. Users can also viow movies that are currently playing in theaters, and trending movies of day or the week.',
-    description2:
-      'Filmazon was one of the first big projects that I had built. I fetched data from the TMDB API to display info about movies or tv shows. It is nice to reflect on this project and see how much I have grown with my code.',
-    technologies: 'React, React Router, and Redux',
-    liveUrl: 'https://filmazon-tn.netlify.app/',
-    githubUrl: 'https://github.com/travistn/filmazon',
-    image: '/filmazon.png',
-  },
-];
-
 export const contacts = [
   {
     name: 'Github',
