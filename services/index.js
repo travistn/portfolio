@@ -23,3 +23,18 @@ export const getProjects = async () => {
 
   return results.projects;
 };
+
+export const getSkills = async () => {
+  const query = gql`
+    query MyQuery {
+      skills {
+        icon
+        name
+      }
+    }
+  `;
+
+  const results = await request(graphqlApi, query);
+
+  return results.skills;
+};
