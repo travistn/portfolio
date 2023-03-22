@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef } from 'react';
-import Image from 'next/image';
 import { motion, useScroll } from 'framer-motion';
 
 import useParallax from '@/hooks/useParallax';
