@@ -23,13 +23,7 @@ const ProjectContainer = ({ project, index }) => {
             ? 'lg:col-start-1 lg:col-span-6 lg:justify-self-auto'
             : 'lg:col-start-7 lg:col-span-6 lg:justify-self-end'
         }`}>
-        <Image
-          src={project.image}
-          alt='website'
-          width={500}
-          height={500}
-          className='brightness-[0.7]'
-        />
+        <img src={project.image.url} alt='app-screenshot' className='brightness-[0.7]' />
         <motion.div
           className={`absolute w-full h-full border-[1px] border-black opacity-30 dark:border-white -z-10 dark:opacity-40 bottom-0 ${
             index % 2 === 0 ? 'left-6' : 'right-6'
@@ -52,9 +46,11 @@ const ProjectContainer = ({ project, index }) => {
         <p className='italic text-[17px] font-medium'>{`Built using ${project.technologies}`}</p>
         <div
           className={`flex flex-row  mt-4 text-[18px] font-medium lg:text-[19px] lg:justify-end lg:gap-6 ${
-            project.liveUrl !== '' ? 'justify-between' : 'justify-end'
+            project.liveSiteUrl !== null ? 'justify-between' : 'justify-end'
           }`}>
-          {project.liveUrl !== '' && <ProjectLink link={project.liveUrl} linkName='Live Site' />}
+          {project.liveSiteUrl !== null && (
+            <ProjectLink link={project.liveSiteUrl} linkName='Live Site' />
+          )}
           <ProjectLink link={project.githubUrl} linkName='Github' />
         </div>
       </motion.div>
