@@ -1,14 +1,15 @@
 'use client';
 
+import { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 import SkillCard from './SkillCard';
-import { skills } from '@/constants';
-import { useCallback } from 'react';
+import { getSkills } from '@/services';
 
 const SkillsCarousel = () => {
+  const [skills, setSkills] = useState([]);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true, align: 'start' }, [
     Autoplay(),
   ]);
@@ -21,11 +22,15 @@ const SkillsCarousel = () => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
+  useEffect(() => {
+    getSkills().then((res) => setSkills(res));
+  }, []);
+
   return (
-    <div className='lg:w-[95%] lg:mx-auto select-none'>
+    <div className='select-none mt-8 lg:w-[95%] lg:mx-auto'>
       <div className='overflow-hidden' ref={emblaRef}>
         <div className='flex relative cursor-grab active:cursor-grabbing'>
-          {skills.map((skill, index) => (
+          {skills?.map((skill, index) => (
             <div key={skill.name} className='min-w-0 flex-[0_0_140px]'>
               <SkillCard key={skill.name} skill={skill} index={index} />
             </div>
