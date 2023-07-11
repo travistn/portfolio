@@ -1,15 +1,14 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 import SkillCard from './SkillCard';
-import { getSkills } from '@/services';
+import { skills } from '@/constants/index';
 
 const SkillsCarousel = () => {
-  const [skills, setSkills] = useState([]);
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true, align: 'start' }, [
     Autoplay(),
   ]);
@@ -21,10 +20,6 @@ const SkillsCarousel = () => {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
-
-  useEffect(() => {
-    getSkills().then((res) => setSkills(res));
-  }, []);
 
   return (
     <div className='select-none mt-8 lg:w-[95%] lg:mx-auto'>
