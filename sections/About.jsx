@@ -20,13 +20,15 @@ const About = () => {
       <motion.h2
         className='font-extrabold text-[44px] text-center leading-[50px] lg:text-[60px] lg:leading-[90px] dark:text-white'
         variants={dropUpVariants}>
-        Frontend Developer
+        Software Developer
       </motion.h2>
       <motion.p
         className='text-[14px] leading-[28px] px-2 text-center lg:text-[16px] lg:px-[24px] dark:text-white dark:opacity-80'
         variants={dropUpVariants}>
-        Hi there, I’m Travis! Being a web developer, I am passionate in creating new experiences,
-        implementing eye catching designs, and making websites come to life.
+        Hi there, I’m Travis! Being a software developer, I am passionate in developing software to
+        create new experiences for users, implementing eye catching designs, and making websites
+        come to life. If I'm not coding, I enjoy playing video games, eating delicious food,
+        listening to music, and sometimes all at the same time!
       </motion.p>
       <motion.div className='mt-8 relative' variants={dropUpVariants}>
         <h3 className='text-center mb-6 font-medium lg:text-[20px] dark:text-white'>
