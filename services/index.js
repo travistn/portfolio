@@ -1,6 +1,30 @@
 import { gql, request } from 'graphql-request';
 
-const graphqlApi = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
+const graphqlApi =
+  process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT || process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
+
+const fetchGraphQL = async (query) => {
+  const response = await fetch(graphqlApi, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
+    next: { revalidate: 60 },
+  });
+
+  const json = await response.json().catch(() => ({}));
+
+  if (!response.ok || json?.errors?.length) {
+    const message =
+      json?.errors?.map((error) => error.message).join(', ') ||
+      `Failed to fetch data: ${response.status}`;
+
+    throw new Error(message);
+  }
+
+  return json?.data;
+};
 
 export const getProjects = async () => {
   const query = gql`
@@ -25,18 +49,58 @@ export const getProjects = async () => {
 };
 
 export const getSkills = async () => {
-  const query = gql`
-    query MyQuery {
-      skills {
-        icon
-        name
+  if (!graphqlApi) {
+    return [];
+  }
+
+  const queries = [
+    `
+      query GetSkills {
+        skills(orderBy: order_ASC) {
+          name
+          order
+          icon {
+            url
+          }
+        }
       }
-    }
-  `;
+    `,
+    `
+      query GetSkills {
+        skills(orderBy: order_ASC) {
+          name
+          order
+          icon
+        }
+      }
+    `,
+    `
+      query GetSkills {
+        skills {
+          name
+          icon
+        }
+      }
+    `,
+  ];
 
-  const results = await request(graphqlApi, query);
+  for (const query of queries) {
+    try {
+      const data = await fetchGraphQL(query);
+      const skills = Array.isArray(data?.skills) ? data.skills : [];
 
-  return results.skills;
+      return skills.map((skill) => ({
+        name: skill?.name ?? '',
+        order: skill?.order ?? null,
+        icon:
+          typeof skill?.icon === 'string'
+            ? skill.icon
+            : skill?.icon?.url ?? '',
+      }));
+    } catch {}
+  }
+
+  return [];
 };
 
 export const getAbout = async () => {
