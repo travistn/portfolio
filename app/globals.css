@@ -30,7 +30,8 @@
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.link:hover::after {
+.link:hover::after,
+.project-link:hover .link::after {
   transform: translate3d(0, 0, 0);
 }
 
@@ -39,6 +40,7 @@
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-.link:hover .link-name {
+.link:hover .link-name,
+.project-link:hover .link .link-name {
   transform: translate3d(-200%, 0, 0);
 }

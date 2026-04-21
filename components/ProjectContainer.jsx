@@ -14,7 +14,7 @@ const ProjectContainer = ({ project, index }) => {
   const borderScroll = useParallax(scrollYProgress, -25);
 
   return (
-    <article className='relative grid lg:grid-cols-11'>
+    <article className='relative grid lg:grid-cols-12 lg:items-center'>
       <div
         ref={ref}
         className={`max-w-[320px] relative justify-self-center z-[-2] lg:row-span-full lg:max-w-[440px] xl:max-w-[480px] ${
@@ -32,7 +32,7 @@ const ProjectContainer = ({ project, index }) => {
       </div>
       <motion.div
         className={`flex flex-col gap-4 p-8 bg-white relative shadow-[0_3px_10px_rgb(0,0,0,0.2)] lg:row-span-full lg:self-center ${
-          index % 2 === 0 ? 'lg:col-start-5 lg:col-end-12' : 'lg:col-start-1 lg:col-end-8'
+          index % 2 === 0 ? 'lg:col-start-6 lg:col-end-13' : 'lg:col-start-1 lg:col-end-8'
         } `}
         style={{ y }}>
         <h4 className='bg-[#f9f366] py-2 px-8 text-center relative top-[-4.5rem] z-[-1] font-semibold text-[20px] lg:max-w-max even:lg:col-start-1 even:lg:col-span-6 '>
