@@ -5,13 +5,35 @@ import { motion } from 'framer-motion';
 
 import ProjectContainer from '@/components/ProjectContainer';
 import { projectsTransition } from '@/utils/motion';
-import { getProjects } from '@/services';
 
 const Projects = () => {
-  const [projects, setProjects] = useState();
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    getProjects().then((res) => setProjects(res));
+    let isMounted = true;
+
+    const loadProjects = async () => {
+      try {
+        const response = await fetch('/api/projects');
+        const data = await response.json();
+
+        if (isMounted) {
+          setProjects(Array.isArray(data?.projects) ? data.projects : []);
+        }
+      } catch (error) {
+        console.error('Failed to load projects.', error);
+
+        if (isMounted) {
+          setProjects([]);
+        }
+      }
+    };
+
+    loadProjects();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -25,7 +47,7 @@ const Projects = () => {
       </h3>
       <div className='mt-8 flex flex-col gap-[8rem] lg:gap-[15rem] lg:mt-12'>
         {projects?.map((project, index) => (
-          <ProjectContainer key={index} project={project} index={index} />
+          <ProjectContainer key={project.name} project={project} index={index} />
         ))}
       </div>
       <div className='w-full h-[1px] bg-black opacity-30 lg:mt-[6rem] dark:bg-white dark:opacity-60' />

@@ -27,25 +27,65 @@ const fetchGraphQL = async (query) => {
 };
 
 export const getProjects = async () => {
-  const query = gql`
-    query MyQuery {
-      projects {
-        description1
-        description2
-        githubUrl
-        liveSiteUrl
-        image {
-          url
+  if (!graphqlApi) {
+    return [];
+  }
+
+  const queries = [
+    `
+      query GetProjects {
+        projects(orderBy: order_ASC) {
+          description1
+          description2
+          githubUrl
+          liveSiteUrl
+          image {
+            url
+          }
+          name
+          order
+          technologies
         }
-        name
-        technologies
       }
-    }
-  `;
+    `,
+    `
+      query GetProjects {
+        projects {
+          description1
+          description2
+          githubUrl
+          liveSiteUrl
+          image {
+            url
+          }
+          name
+          technologies
+        }
+      }
+    `,
+  ];
 
-  const results = await request(graphqlApi, query);
+  for (const query of queries) {
+    try {
+      const data = await fetchGraphQL(query);
+      const projects = Array.isArray(data?.projects) ? data.projects : [];
 
-  return results.projects;
+      return projects.map((project) => ({
+        description1: project?.description1 ?? '',
+        description2: project?.description2 ?? '',
+        githubUrl: project?.githubUrl ?? '',
+        liveSiteUrl: project?.liveSiteUrl ?? null,
+        image: {
+          url: project?.image?.url ?? '',
+        },
+        name: project?.name ?? '',
+        order: project?.order ?? null,
+        technologies: project?.technologies ?? '',
+      }));
+    } catch {}
+  }
+
+  return [];
 };
 
 export const getSkills = async () => {
