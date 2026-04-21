@@ -38,3 +38,17 @@ export const getSkills = async () => {
 
   return results.skills;
 };
+
+export const getAbout = async () => {
+  const query = gql`
+    query MyQuery {
+      abouts {
+        bio
+      }
+    }
+  `;
+
+  const results = await request(graphqlApi, query);
+
+  return results.abouts;
+};

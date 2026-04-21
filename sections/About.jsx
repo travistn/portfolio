@@ -1,11 +1,19 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import SkillsCarousel from '@/components/SkillsCarousel';
 import { staggerContainer, dropUpVariants } from '@/utils/motion';
+import { getAbout } from '@/services';
 
 const About = () => {
+  const [aboutMe, setAboutMe] = useState(null);
+
+  useEffect(() => {
+    getAbout().then((res) => setAboutMe(res?.[0] ?? null));
+  }, []);
+
   return (
     <motion.section
       className='flex flex-col gap-12 px-6 py-16 lg:mx-auto lg:pt-[6rem] lg:w-[90%] xl:w-[75%] 2xl:w-[65%]'
@@ -25,10 +33,7 @@ const About = () => {
       <motion.p
         className='text-[14px] leading-[28px] px-2 text-center lg:text-[16px] lg:px-[24px] dark:text-white dark:opacity-80'
         variants={dropUpVariants}>
-        Hi there, I’m Travis! Being a software developer, I am passionate in developing software to
-        create new experiences for users, implementing eye catching designs, and making websites
-        come to life. If I'm not coding, I enjoy playing video games, eating delicious food,
-        listening to music, and sometimes all at the same time!
+        {aboutMe?.bio}
       </motion.p>
       <motion.div className='mt-8 relative' variants={dropUpVariants}>
         <h3 className='text-center mb-6 font-medium lg:text-[20px] dark:text-white'>
