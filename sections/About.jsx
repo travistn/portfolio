@@ -1,19 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import SkillsCarousel from '@/components/SkillsCarousel';
 import { staggerContainer, dropUpVariants } from '@/utils/motion';
-import { getAbout } from '@/services';
 
-const About = () => {
-  const [aboutMe, setAboutMe] = useState(null);
-
-  useEffect(() => {
-    getAbout().then((res) => setAboutMe(res?.[0] ?? null));
-  }, []);
-
+const About = ({ aboutMe, skills }) => {
   return (
     <motion.section
       className='flex flex-col gap-12 px-6 py-16 lg:mx-auto lg:pt-[6rem] lg:w-[90%] xl:w-[75%] 2xl:w-[65%]'
@@ -39,7 +31,7 @@ const About = () => {
         <h3 className='text-center mb-6 font-medium lg:text-[20px] dark:text-white'>
           Most Used Tools
         </h3>
-        <SkillsCarousel />
+        <SkillsCarousel skills={skills} />
       </motion.div>
       <motion.div
         className='w-full h-[1px] bg-black opacity-30 mt-[3rem] dark:bg-white dark:opacity-60'

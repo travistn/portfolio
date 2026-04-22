@@ -1,41 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import ProjectContainer from '@/components/ProjectContainer';
 import { projectsTransition } from '@/utils/motion';
 
-const Projects = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadProjects = async () => {
-      try {
-        const response = await fetch('/api/projects');
-        const data = await response.json();
-
-        if (isMounted) {
-          setProjects(Array.isArray(data?.projects) ? data.projects : []);
-        }
-      } catch (error) {
-        console.error('Failed to load projects.', error);
-
-        if (isMounted) {
-          setProjects([]);
-        }
-      }
-    };
-
-    loadProjects();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
+const Projects = ({ projects }) => {
   return (
     <motion.section
       className='flex flex-col gap-6 px-6 pb-8 lg:mx-auto lg:w-[90%] xl:w-[75%] 2xl:w-[65%] 2xl:mt-[6rem]'
