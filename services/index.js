@@ -1,5 +1,3 @@
-import { gql, request } from 'graphql-request';
-
 const graphqlApi =
   process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT || process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
@@ -144,15 +142,19 @@ export const getSkills = async () => {
 };
 
 export const getAbout = async () => {
-  const query = gql`
-    query MyQuery {
+  if (!graphqlApi) {
+    return [];
+  }
+
+  const query = `
+    query GetAbout {
       abouts {
         bio
       }
     }
   `;
 
-  const results = await request(graphqlApi, query);
+  const data = await fetchGraphQL(query);
 
-  return results.abouts;
+  return Array.isArray(data?.abouts) ? data.abouts : [];
 };

@@ -1,14 +1,13 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 import SkillCard from './SkillCard';
 
-const SkillsCarousel = () => {
-  const [skills, setSkills] = useState([]);
+const SkillsCarousel = ({ skills = [] }) => {
   const autoplay = useRef(
     Autoplay({
       delay: 5000,
@@ -18,33 +17,6 @@ const SkillsCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true, align: 'start' }, [
     autoplay.current,
   ]);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadSkills = async () => {
-      try {
-        const response = await fetch('/api/skills');
-        const data = await response.json();
-
-        if (isMounted) {
-          setSkills(Array.isArray(data?.skills) ? data.skills : []);
-        }
-      } catch (error) {
-        console.error('Failed to load skills.', error);
-
-        if (isMounted) {
-          setSkills([]);
-        }
-      }
-    };
-
-    loadSkills();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   useEffect(() => {
     if (!emblaApi || skills.length === 0) {
