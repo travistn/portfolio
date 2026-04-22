@@ -94,7 +94,7 @@ export const getSkills = async () => {
   const queries = [
     `
       query GetSkills {
-        skills(orderBy: order_ASC) {
+        skills(orderBy: order_ASC, first: 20) {
           name
           order
           icon {
@@ -105,7 +105,7 @@ export const getSkills = async () => {
     `,
     `
       query GetSkills {
-        skills(orderBy: order_ASC) {
+        skills(orderBy: order_ASC, first: 20) {
           name
           order
           icon
@@ -114,7 +114,7 @@ export const getSkills = async () => {
     `,
     `
       query GetSkills {
-        skills {
+        skills(first: 20) {
           name
           icon
         }
